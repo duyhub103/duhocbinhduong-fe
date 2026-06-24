@@ -472,6 +472,199 @@ const Home = () => (
     <TrustSection />
     <TestimonialsSection />
 
+    {/* ── BÀI VIẾT NỔI BẬT ── */}
+    <section className="home-articles">
+      <div className="container">
+        <div className="home-section-header">
+          <h2 className="section-title" style={{ marginBottom: 0 }}>Bài viết nổi bật</h2>
+          <Link to="/tin-tuc" className="home-view-all">Xem tất cả →</Link>
+        </div>
+        <div className="featured-articles-layout">
+          {/* Left: Feature image */}
+          <div className="featured-main-img">
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80"
+              alt="Bài viết nổi bật du học"
+            />
+            <div className="featured-main-overlay">
+              <span className="featured-tag">Nghề nghiệp &amp; Du học</span>
+              <h3>Tốt nghiệp THPT nên đi du học nước nào để có việc làm tốt sau tốt nghiệp?</h3>
+              <p>Lương Mai Vân · 15/06/2026</p>
+            </div>
+          </div>
+          {/* Right: Article list */}
+          <div className="featured-article-list">
+            {[
+              {
+                tag: 'Chi phí & Học bổng',
+                title: 'Chi Phí Du Học Hàn Quốc 2026 Cần Bao Nhiêu?',
+                desc: 'Học phí, sinh hoạt phí, chứng minh tài chính và các khoản cần chuẩn bị khi du học Hàn Quốc.',
+                date: '19/05/2026',
+                path: '/chi-phi',
+                img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=80&q=80',
+              },
+              {
+                tag: 'Quốc gia du học',
+                title: 'Du Học Nghề Đức: Lộ Trình & Cơ Hội Định Cư',
+                desc: 'Đây không chỉ là con đường học tập an toàn, mà còn là lộ trình ngắn nhất để xây dựng sự nghiệp và định cư.',
+                date: '19/05/2026',
+                path: '/quoc-gia',
+                img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=80&q=80',
+              },
+              {
+                tag: 'Quốc gia du học',
+                title: 'Điều Kiện Du Học Nhật Bản Mới Nhất 2026',
+                desc: 'Cập nhật ngay điều kiện du học Nhật Bản 2026 mới nhất về độ tuổi, học vấn, tài chính và ngoại ngữ.',
+                date: '19/05/2026',
+                path: '/quoc-gia',
+                img: 'https://images.unsplash.com/photo-1490761668535-35497054a408?w=80&q=80',
+              },
+              {
+                tag: 'Cẩm nang du học',
+                title: 'Kinh Nghiệm Phỏng Vấn Visa Du Học',
+                desc: 'Trọn bộ kinh nghiệm phỏng vấn visa du học chuẩn chỉnh, đúc kết từ thực tế giúp bạn tự tin nắm chắc tấm vé.',
+                date: '19/05/2026',
+                path: '/kinh-nghiem',
+                img: 'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=80&q=80',
+              },
+              {
+                tag: 'Chi phí & Học bổng',
+                title: 'Bí Kíp Săn Học Bổng Du Học Đài Loan',
+                desc: 'Đừng để chi phí làm bạn chùn bước giấc mơ du học — bộ bí kíp săn học bổng Đài Loan đầy đủ nhất.',
+                date: '19/05/2026',
+                path: '/hoc-bong',
+                img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=80&q=80',
+              },
+            ].map((art) => (
+              <Link to={art.path} key={art.title} className="featured-article-row">
+                <img src={art.img} alt={art.title} className="featured-article-thumb" />
+                <div className="featured-article-info">
+                  <span className="featured-article-tag">{art.tag}</span>
+                  <h4 className="featured-article-title">{art.title}</h4>
+                  <p className="featured-article-desc">{art.desc}</p>
+                  <span className="featured-article-date">Lương Mai Vân · {art.date}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── NGÀNH NGHỀ NỔI BẬT ── */}
+    <section className="home-articles" style={{ background: 'var(--bg-light)' }}>
+      <div className="container">
+        <div className="home-section-header">
+          <h2 className="section-title" style={{ marginBottom: 0 }}>Ngành nghề nổi bật 2026</h2>
+          <Link to="/nganh-nghe" className="home-view-all">Xem tất cả →</Link>
+        </div>
+        <div className="career-article-grid">
+          {[
+            { title: 'Điều dưỡng', country: 'Đức', salary: '80–120 tr/tháng', time: '3 năm', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80', path: '/nganh-nghe' },
+            { title: 'Cơ khí', country: 'Đức · Nhật Bản · Hàn Quốc', salary: '70–110 tr/tháng', time: '3 năm', img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&q=80', path: '/nganh-nghe' },
+            { title: 'Điện – Điện tử', country: 'Nhật Bản · Hàn Quốc', salary: '65–100 tr/tháng', time: '3 năm', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', path: '/nganh-nghe' },
+            { title: 'Nhà hàng – Khách sạn', country: 'Úc · Canada', salary: '60–95 tr/tháng', time: '2 năm', img: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&q=80', path: '/nganh-nghe' },
+            { title: 'Công nghệ thông tin', country: 'Đức · Canada · Úc', salary: '100–150 tr/tháng', time: '4 năm', img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80', path: '/nganh-nghe' },
+            { title: 'Logistics', country: 'Hàn Quốc · Nhật Bản', salary: '60–90 tr/tháng', time: '3 năm', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80', path: '/nganh-nghe' },
+          ].map((job) => (
+            <Link to={job.path} key={job.title} className="career-article-card">
+              <div className="career-article-img">
+                <img src={job.img} alt={job.title} />
+                <span className="career-article-country">{job.country}</span>
+              </div>
+              <div className="career-article-body">
+                <h4>{job.title}</h4>
+                <div className="career-article-meta">
+                  <span>💰 {job.salary}</span>
+                  <span>⏱ {job.time}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ── QUỐC GIA DU HỌC ── */}
+    <section className="home-articles">
+      <div className="container">
+        <div className="home-section-header">
+          <h2 className="section-title" style={{ marginBottom: 0 }}>Quốc gia du học phổ biến</h2>
+          <Link to="/quoc-gia" className="home-view-all">Xem tất cả →</Link>
+        </div>
+        <div className="country-article-grid">
+          {[
+            { name: 'Đức', flag: '🇩🇪', highlight: 'Học nghề miễn phí + lương thực tập', img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Nhật Bản', flag: '🇯🇵', highlight: 'Văn hóa kỷ luật, cơ hội định cư cao', img: 'https://images.unsplash.com/photo-1490761668535-35497054a408?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Hàn Quốc', flag: '🇰🇷', highlight: 'Chi phí thấp, nhu cầu nhân lực cao', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Úc', flag: '🇦🇺', highlight: 'Định cư dễ, chất lượng cuộc sống cao', img: 'https://images.unsplash.com/photo-1524293568345-75d62c3664f7?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Canada', flag: '🇨🇦', highlight: 'Hệ thống PR thân thiện với lao động tay nghề', img: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Đài Loan', flag: '🇹🇼', highlight: 'Chi phí hợp lý, học bổng đa dạng', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500&q=80', path: '/quoc-gia' },
+          ].map((c) => (
+            <Link to={c.path} key={c.name} className="country-article-card">
+              <img src={c.img} alt={c.name} />
+              <div className="country-article-overlay">
+                <span className="country-flag">{c.flag} {c.name}</span>
+                <p>{c.highlight}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ── CẨM NANG & CHI PHÍ ── */}
+    <section className="home-articles" style={{ background: 'var(--bg-light)' }}>
+      <div className="container">
+        <div className="handbook-two-col">
+          {/* Cẩm nang */}
+          <div className="handbook-col">
+            <div className="home-section-header">
+              <h2 className="section-title" style={{ marginBottom: 0, fontSize: '1.3rem' }}>Cẩm nang Du học</h2>
+              <Link to="/kinh-nghiem" className="home-view-all">Xem thêm →</Link>
+            </div>
+            {[
+              { title: 'Checklist hồ sơ du học 2026: Danh sách giấy tờ quan trọng cần chuẩn bị', path: '/ho-so-visa', date: '10/06/2026' },
+              { title: 'Quy trình xin visa du học: Các bước quan trọng để tăng tỷ lệ thành công', path: '/ho-so-visa', date: '08/06/2026' },
+              { title: 'Kinh nghiệm phỏng vấn visa du học: Câu hỏi thường gặp và cách trả lời hiệu quả', path: '/kinh-nghiem', date: '05/06/2026' },
+              { title: '5 lỗi thường gặp khiến hồ sơ xin visa du học bị từ chối', path: '/kinh-nghiem', date: '01/06/2026' },
+              { title: 'Chuẩn bị ngoại ngữ trước khi du học: Chuẩn bị hiệu quả cho học sinh Việt Nam', path: '/kinh-nghiem', date: '28/05/2026' },
+            ].map((art) => (
+              <Link to={art.path} key={art.title} className="handbook-article-row">
+                <div className="handbook-dot" />
+                <div>
+                  <p className="handbook-article-title">{art.title}</p>
+                  <span className="handbook-article-date">{art.date}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          {/* Chi phí & Học bổng */}
+          <div className="handbook-col">
+            <div className="home-section-header">
+              <h2 className="section-title" style={{ marginBottom: 0, fontSize: '1.3rem' }}>Chi phí &amp; Học bổng</h2>
+              <Link to="/chi-phi" className="home-view-all">Xem thêm →</Link>
+            </div>
+            {[
+              { title: 'Chi phí du học Đức 2026: Học phí, sinh hoạt phí và các khoản cần chuẩn bị', path: '/chi-phi', date: '12/06/2026' },
+              { title: 'Chi phí du học Nhật Bản 2026: Phụ huynh và học sinh cần chuẩn bị bao nhiêu tiền?', path: '/chi-phi', date: '10/06/2026' },
+              { title: 'Học bổng du học nghề: Điều kiện, lợi ích và những lưu ý quan trọng', path: '/hoc-bong', date: '07/06/2026' },
+              { title: 'Giải pháp tài chính du học: Vay vốn, trả góp và cách giảm áp lực chi phí cho gia đình', path: '/ho-tro', date: '03/06/2026' },
+              { title: 'Bài toán ROI trong du học: Chi phí ban đầu và giá trị tương lai cho gia đình', path: '/ho-tro', date: '30/05/2026' },
+            ].map((art) => (
+              <Link to={art.path} key={art.title} className="handbook-article-row">
+                <div className="handbook-dot" style={{ background: '#F59E0B' }} />
+                <div>
+                  <p className="handbook-article-title">{art.title}</p>
+                  <span className="handbook-article-date">{art.date}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="finance">
       <div className="container">
         <div className="finance-grid">
