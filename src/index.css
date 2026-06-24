@@ -300,6 +300,62 @@ h1, h2, h3, h4, h5, h6 {
   padding: 16px 20px 20px;
   border-top: 1px solid var(--border-color);
   flex-shrink: 0;
+}/* ── Sidebar Accordion (Cẩm nang) ── */
+.sidebar-accordion {
+  border-left: 3px solid transparent;
+}
+
+.sidebar-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  line-height: 1.3;
+}
+
+.sidebar-accordion-trigger:hover,
+.sidebar-accordion-trigger.open {
+  background: var(--primary-light);
+  color: var(--primary-blue);
+}
+
+.sidebar-accordion-chevron {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-accordion-body {
+  background: var(--bg-light);
+  border-top: 1px solid var(--border-color);
+}
+
+.sidebar-sublink {
+  display: block;
+  padding: 9px 20px 9px 40px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.sidebar-sublink:hover {
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  border-left-color: var(--primary-blue);
+  padding-left: 44px;
 }
 
 

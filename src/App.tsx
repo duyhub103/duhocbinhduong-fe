@@ -16,25 +16,41 @@ import {
 } from 'lucide-react';
 
 // --- Sidebar Nav Data ---
-const sidebarLinks = [
-  { label: 'Về chúng tôi', path: '/ve-chung-toi' },
-  { label: 'Tin tức & Sự kiện', path: '/tin-tuc' },
-  { label: 'Ngành nghề nổi bật', path: '/nganh-nghe' },
-  { label: 'Quốc gia du học', path: '/quoc-gia' },
-  { label: 'Học bổng', path: '/hoc-bong' },
+// Items with `sublinks` are rendered as an accordion; others are flat links.
+type NavItem =
+  | { label: string; path: string; sublinks?: undefined }
+  | { label: string; path?: undefined; sublinks: { label: string; path: string }[] };
+
+const sidebarItems: NavItem[] = [
+  // --- Chuyển đổi (quan trọng nhất) ---
+  { label: 'Ngành nghề nổi bật',      path: '/nganh-nghe' },
+  { label: 'Quốc gia du học',         path: '/quoc-gia' },
+  { label: 'Học bổng',                path: '/hoc-bong' },
   { label: 'Chương trình tuyển sinh', path: '/tuyen-sinh' },
-  { label: 'Chi phí du học', path: '/chi-phi' },
-  { label: 'Lộ trình 5 năm', path: '/lo-trinh' },
-  { label: 'Hỗ trợ tài chính', path: '/ho-tro' },
-  { label: 'Hồ sơ & Visa', path: '/ho-so-visa' },
-  { label: 'Kinh nghiệm du học', path: '/kinh-nghiem' },
-  { label: 'Tin tức du học', path: '/tin-tuc-du-hoc' },
-  { label: 'Đánh giá hồ sơ', path: '/trac-nghiem' },
+  { label: 'Đánh giá hồ sơ',         path: '/trac-nghiem' },
+  // --- Thông tin trung tâm ---
+  { label: 'Về chúng tôi',            path: '/ve-chung-toi' },
+  { label: 'Trường học & Đối tác',    path: '/doi-tac' },
+  { label: 'Tin tức & Sự kiện',       path: '/tin-tuc' },
+  // --- Chi phí & Kế hoạch ---
+  { label: 'Chi phí du học',          path: '/chi-phi' },
+  { label: 'Lộ trình 5 năm',          path: '/lo-trinh' },
+  { label: 'Hỗ trợ tài chính',        path: '/ho-tro' },
+  // --- Cẩm nang (accordion) ---
+  {
+    label: 'Cẩm nang Du học',
+    sublinks: [
+      { label: 'Hồ sơ & Visa',       path: '/ho-so-visa' },
+      { label: 'Kinh nghiệm du học',  path: '/kinh-nghiem' },
+      { label: 'Tin tức du học',      path: '/tin-tuc-du-hoc' },
+    ],
+  },
 ];
 
 // --- Header + Sidebar ---
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [camNangOpen, setCamNangOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -61,11 +77,37 @@ const Header = () => {
 
         <nav className="sidebar-nav">
           <div className="sidebar-section">
-            {sidebarLinks.map((link) => (
-              <Link key={link.path} to={link.path} className="sidebar-link">
-                {link.label}
-              </Link>
-            ))}
+            {sidebarItems.map((item) => {
+              if (item.sublinks) {
+                // Accordion item
+                return (
+                  <div key={item.label} className="sidebar-accordion">
+                    <button
+                      className={`sidebar-accordion-trigger${camNangOpen ? ' open' : ''}`}
+                      onClick={() => setCamNangOpen(!camNangOpen)}
+                    >
+                      {item.label}
+                      <span className="sidebar-accordion-chevron">{camNangOpen ? '▲' : '▼'}</span>
+                    </button>
+                    {camNangOpen && (
+                      <div className="sidebar-accordion-body">
+                        {item.sublinks.map((sub) => (
+                          <Link key={sub.path} to={sub.path} className="sidebar-sublink">
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              // Flat link
+              return (
+                <Link key={item.path} to={item.path} className="sidebar-link">
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </nav>
 
