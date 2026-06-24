@@ -483,7 +483,7 @@ const Home = () => (
           {/* Left: Feature image */}
           <div className="featured-main-img">
             <img
-              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80"
+              src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80"
               alt="Bài viết nổi bật du học"
             />
             <div className="featured-main-overlay">
@@ -517,7 +517,7 @@ const Home = () => (
                 desc: 'Cập nhật ngay điều kiện du học Nhật Bản 2026 mới nhất về độ tuổi, học vấn, tài chính và ngoại ngữ.',
                 date: '19/05/2026',
                 path: '/quoc-gia',
-                img: 'https://images.unsplash.com/photo-1490761668535-35497054a408?w=80&q=80',
+                img: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=80&q=80',
               },
               {
                 tag: 'Cẩm nang du học',
@@ -525,7 +525,7 @@ const Home = () => (
                 desc: 'Trọn bộ kinh nghiệm phỏng vấn visa du học chuẩn chỉnh, đúc kết từ thực tế giúp bạn tự tin nắm chắc tấm vé.',
                 date: '19/05/2026',
                 path: '/kinh-nghiem',
-                img: 'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=80&q=80',
+                img: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=80&q=80',
               },
               {
                 tag: 'Chi phí & Học bổng',
@@ -595,7 +595,7 @@ const Home = () => (
         <div className="country-article-grid">
           {[
             { name: 'Đức', flag: '🇩🇪', highlight: 'Học nghề miễn phí + lương thực tập', img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=500&q=80', path: '/quoc-gia' },
-            { name: 'Nhật Bản', flag: '🇯🇵', highlight: 'Văn hóa kỷ luật, cơ hội định cư cao', img: 'https://images.unsplash.com/photo-1490761668535-35497054a408?w=500&q=80', path: '/quoc-gia' },
+            { name: 'Nhật Bản', flag: '🇯🇵', highlight: 'Văn hóa kỷ luật, cơ hội định cư cao', img: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80', path: '/quoc-gia' },
             { name: 'Hàn Quốc', flag: '🇰🇷', highlight: 'Chi phí thấp, nhu cầu nhân lực cao', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&q=80', path: '/quoc-gia' },
             { name: 'Úc', flag: '🇦🇺', highlight: 'Định cư dễ, chất lượng cuộc sống cao', img: 'https://images.unsplash.com/photo-1524293568345-75d62c3664f7?w=500&q=80', path: '/quoc-gia' },
             { name: 'Canada', flag: '🇨🇦', highlight: 'Hệ thống PR thân thiện với lao động tay nghề', img: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=500&q=80', path: '/quoc-gia' },
