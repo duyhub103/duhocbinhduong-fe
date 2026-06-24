@@ -16,52 +16,20 @@ import {
 } from 'lucide-react';
 
 // --- Sidebar Nav Data ---
-const sidebarSections = [
-  {
-    group: 'GIỚI THIỆU',
-    links: [
-      { label: 'Về chúng tôi', path: '/ve-chung-toi' },
-      { label: 'Tin tức & Sự kiện', path: '/tin-tuc' },
-    ],
-  },
-  {
-    group: 'NGHỀ NGHIỆP & DU HỌC',
-    links: [
-      { label: 'Ngành nghề nổi bật', path: '/nganh-nghe' },
-      { label: 'Quốc gia du học', path: '/quoc-gia' },
-      { label: 'Cơ hội nghề nghiệp quốc tế', path: '/co-hoi-nghe-nghiep' },
-    ],
-  },
-  {
-    group: 'HỌC BỔNG & TUYỂN SINH',
-    links: [
-      { label: 'Học bổng', path: '/hoc-bong' },
-      { label: 'Chương trình tuyển sinh', path: '/tuyen-sinh' },
-    ],
-  },
-  {
-    group: 'CHI PHÍ & LỘ TRÌNH',
-    links: [
-      { label: 'Chi phí du học', path: '/chi-phi' },
-      { label: 'Lộ trình 5 năm', path: '/lo-trinh' },
-      { label: 'Hỗ trợ tài chính', path: '/ho-tro' },
-    ],
-  },
-  {
-    group: 'CẨM NANG DU HỌC',
-    links: [
-      { label: 'Hồ sơ & Visa', path: '/ho-so-visa' },
-      { label: 'Kinh nghiệm du học', path: '/kinh-nghiem' },
-      { label: 'Cuộc sống du học sinh', path: '/cuoc-song' },
-      { label: 'Tin tức du học', path: '/tin-tuc-du-hoc' },
-    ],
-  },
-  {
-    group: 'CÔNG CỤ',
-    links: [
-      { label: 'Trắc nghiệm định hướng nghề', path: '/trac-nghiem' },
-    ],
-  },
+const sidebarLinks = [
+  { label: 'Về chúng tôi', path: '/ve-chung-toi' },
+  { label: 'Tin tức & Sự kiện', path: '/tin-tuc' },
+  { label: 'Ngành nghề nổi bật', path: '/nganh-nghe' },
+  { label: 'Quốc gia du học', path: '/quoc-gia' },
+  { label: 'Học bổng', path: '/hoc-bong' },
+  { label: 'Chương trình tuyển sinh', path: '/tuyen-sinh' },
+  { label: 'Chi phí du học', path: '/chi-phi' },
+  { label: 'Lộ trình 5 năm', path: '/lo-trinh' },
+  { label: 'Hỗ trợ tài chính', path: '/ho-tro' },
+  { label: 'Hồ sơ & Visa', path: '/ho-so-visa' },
+  { label: 'Kinh nghiệm du học', path: '/kinh-nghiem' },
+  { label: 'Tin tức du học', path: '/tin-tuc-du-hoc' },
+  { label: 'Đánh giá hồ sơ', path: '/trac-nghiem' },
 ];
 
 // --- Header + Sidebar ---
@@ -92,16 +60,13 @@ const Header = () => {
         </div>
 
         <nav className="sidebar-nav">
-          {sidebarSections.map((section) => (
-            <div key={section.group} className="sidebar-section">
-              <span className="sidebar-group-label">{section.group}</span>
-              {section.links.map((link) => (
-                <Link key={link.path} to={link.path} className="sidebar-link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ))}
+          <div className="sidebar-section">
+            {sidebarLinks.map((link) => (
+              <Link key={link.path} to={link.path} className="sidebar-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
         <div className="sidebar-footer">
