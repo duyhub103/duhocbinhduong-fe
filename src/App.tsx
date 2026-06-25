@@ -429,8 +429,8 @@ const Home = () => (
         </div>
         <div className="hero-image-wrapper">
           <img 
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-            alt="Diverse professionals" 
+            src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80" 
+            alt="Du học sinh quốc tế" 
             className="hero-image"
           />
         </div>

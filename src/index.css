@@ -363,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero */
 .hero {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1600&q=80') no-repeat center center;
+  background: url('./assets/banner.png') no-repeat center right;
   background-size: cover;
   padding: 100px 0 120px;
 }
