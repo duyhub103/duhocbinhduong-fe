@@ -10,9 +10,9 @@ const ScrollToTop = () => {
 };
 import {
   Phone, MessageCircle, Calendar, CheckCircle2,
-  TrendingUp, Star, Globe, Award, 
+  TrendingUp, Globe, Award,
   Users, Building, GraduationCap, Banknote, Wallet, User,
-  Plane, Briefcase, MapPin, Clock, ShieldCheck, Handshake, PlayCircle, Compass, Lightbulb, Target
+  Plane, MapPin, Clock, ShieldCheck, Handshake, PlayCircle
 } from 'lucide-react';
 
 // --- Sidebar Nav Data ---
