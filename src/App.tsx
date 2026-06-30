@@ -10,9 +10,9 @@ const ScrollToTop = () => {
 };
 import {
   Phone, MessageCircle, Calendar, CheckCircle2,
-  TrendingUp, Star, Globe, Award, 
+  TrendingUp, Globe, Award,
   Users, Building, GraduationCap, Banknote, Wallet, User,
-  Plane, Briefcase, MapPin, Clock, ShieldCheck, Handshake, PlayCircle, Compass, Lightbulb, Target
+  Plane, MapPin, Clock, ShieldCheck, Handshake, PlayCircle
 } from 'lucide-react';
 
 // --- Sidebar Nav Data ---
@@ -230,24 +230,62 @@ const FloatingSidebar = () => (
 // --- Sections (Reusable) ---
 const RoadmapSection = () => {
   const steps = [
-    { num: 1, title: 'Khám phá & Định hướng', desc: 'Hiểu bản thân, chọn đúng nghề phù hợp', icon: <Compass size={18} /> },
-    { num: 2, title: 'Đào tạo & Chuẩn bị', desc: 'Ngoại ngữ, kỹ năng, hồ sơ du học', icon: <GraduationCap size={18} /> },
-    { num: 3, title: 'Du học & Trải nghiệm', desc: 'Học tập và thực hành tại nước ngoài', icon: <Plane size={18} /> },
-    { num: 4, title: 'Việc làm & Phát triển', desc: 'Làm việc ổn định, thu nhập tăng trưởng', icon: <Briefcase size={18} /> },
-    { num: 5, title: 'Thành công & Tự do', desc: 'Định cư, tích lũy, tự do tài chính', icon: <Star size={18} /> },
+    {
+      num: 1,
+      title: 'Khám phá & Định hướng',
+      desc: 'Hiểu bản thân, xác định mục tiêu và chọn đúng ngành nghề phù hợp với năng lực và sở thích.',
+      img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80',
+      tag: 'Bước 1',
+    },
+    {
+      num: 2,
+      title: 'Đào tạo & Chuẩn bị',
+      desc: 'Học ngoại ngữ, hoàn thiện hồ sơ, chuẩn bị tài chính và kỹ năng cần thiết trước khi đi.',
+      img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80',
+      tag: 'Bước 2',
+    },
+    {
+      num: 3,
+      title: 'Du học & Trải nghiệm',
+      desc: 'Học tập, thực hành tại nước ngoài. Làm thêm để tự trang trải và tích lũy kinh nghiệm quốc tế.',
+      img: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=400&q=80',
+      tag: 'Bước 3',
+    },
+    {
+      num: 4,
+      title: 'Việc làm & Phát triển',
+      desc: 'Có việc làm ổn định, thu nhập tăng trưởng. Mở rộng mạng lưới và thăng tiến trong ngành nghề.',
+      img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
+      tag: 'Bước 4',
+    },
+    {
+      num: 5,
+      title: 'Thành công & Tự do',
+      desc: 'Định cư lâu dài, tích lũy tài sản và đạt tự do tài chính tại quốc gia phát triển.',
+      img: 'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=400&q=80',
+      tag: 'Bước 5',
+    },
   ];
 
   return (
     <section className="roadmap">
-      <div className="container">
+      <div className="container text-center">
         <h2 className="section-title">LỘ TRÌNH THÀNH CÔNG 5 NĂM</h2>
-        <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>Lộ trình 5 năm được thiết kế khoa học, giúp bạn đạt mục tiêu nhanh chóng và hiệu quả.</p>
-        <div className="timeline">
-          {steps.map(step => (
-            <div className="timeline-step" key={step.num}>
-              <div className="step-number">{step.num}</div>
-              <div className="step-title">{step.title}</div>
-              <div className="step-desc">{step.desc}</div>
+        <p style={{ color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '650px', marginLeft: 'auto', marginRight: 'auto' }}>
+          Lộ trình được thiết kế khoa học, đồng hành cùng bạn từng bước từ định hướng đến tự do tài chính quốc tế.
+        </p>
+        <div className="roadmap-card-grid">
+          {steps.map((step) => (
+            <div className="roadmap-card" key={step.num}>
+              <div className="roadmap-card-img-wrap">
+                <img src={step.img} alt={step.title} className="roadmap-card-img" />
+                <span className="roadmap-step-badge">{step.tag}</span>
+              </div>
+              <div className="roadmap-card-body">
+                <div className="roadmap-step-num">{step.num}</div>
+                <h3 className="roadmap-card-title">{step.title}</h3>
+                <p className="roadmap-card-desc">{step.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -256,6 +294,7 @@ const RoadmapSection = () => {
     </section>
   );
 };
+
 
 const CareersSection = () => {
   const jobs = [
@@ -404,29 +443,26 @@ const Home = () => (
       <div className="container hero-container">
         <div className="hero-text">
           <h1 className="hero-title">KHÁM PHÁ CON ĐƯỜNG DU HỌC — KIẾN TẠO TƯƠNG LAI CỦA BẠN</h1>
-          <p className="hero-subtitle">
-            Đầu tư cho tương lai bằng con đường du học nghề & sau đại học. Lộ trình quốc tế giúp bạn có nghề, thu nhập cao và cơ hội định cư tại Đức, Úc, Canada.
-          </p>
           <div className="hero-actions">
             <Link to="/lien-he" className="btn-primary" style={{ textDecoration: 'none' }}>ĐÁNH GIÁ CƠ HỘI MIỄN PHÍ</Link>
-            <Link to="/lo-trinh"><button className="btn-outline" style={{ background: 'white' }}>XEM LỘ TRÌNH 5 NĂM</button></Link>
           </div>
           <div className="hero-badges">
-            <div className="hero-badge"><Plane size={18} /> Du học nghề</div>
-            <div className="hero-badge"><GraduationCap size={18} /> Sau đại học</div>
-            <div className="hero-badge"><Globe size={18} /> Định cư quốc tế</div>
+            <div className="hero-badge"><Plane size={20} /> Du học nghề</div>
+            <div className="hero-badge"><GraduationCap size={20} /> Sau đại học</div>
+            <div className="hero-badge"><Globe size={20} /> Định cư quốc tế</div>
           </div>
-          <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', gap: '14px' }}>
             <div style={{ display: 'flex' }}>
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop" style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid white', zIndex: 4 }} alt="" />
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop" style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid white', marginLeft: '-15px', zIndex: 3 }} alt="" />
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=40&h=40&fit=crop" style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid white', marginLeft: '-15px', zIndex: 2 }} alt="" />
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=48&h=48&fit=crop" style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid white', zIndex: 4 }} alt="" />
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=48&h=48&fit=crop" style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid white', marginLeft: '-16px', zIndex: 3 }} alt="" />
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=48&h=48&fit=crop" style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid white', marginLeft: '-16px', zIndex: 2 }} alt="" />
             </div>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}>
-              5000+ <span style={{ fontWeight: 400 }}>học viên đã và đang thành công tại nước ngoài</span>
+            <p style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 700 }}>
+              5000+ <span style={{ fontWeight: 400, fontSize: '0.95rem' }}>học viên đã và đang thành công tại nước ngoài</span>
             </p>
           </div>
         </div>
+
         <div className="hero-image-wrapper">
           <img 
             src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80" 
@@ -441,30 +477,37 @@ const Home = () => (
       <div className="container">
         <h2 className="section-title">ĐẦU TƯ CHO TƯƠNG LAI BẰNG CON ĐƯỜNG DU HỌC</h2>
         <div className="pain-grid">
-          <div className="pain-card" style={{ background: '#EFF6FF' }}>
-            <div className="pain-icon" style={{ color: 'var(--primary-blue)' }}><Target /></div>
-            <div className="pain-content">
+          <div
+            className="pain-card pain-card-img"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80')" }}
+          >
+            <div className="pain-card-overlay">
               <h3>Định hướng rõ ràng từ sớm</h3>
-              <p>Dù bạn mới tốt nghiệp THPT, đang học nghề hay đã tốt nghiệp đại học — du học mở ra cơ hội phát triển nghề nghiệp quốc tế cho mọi đối tượng.</p>
+              <p>Chọn đúng nghề, đúng quốc gia — bước đầu quyết định cả tương lai.</p>
             </div>
           </div>
-          <div className="pain-card" style={{ background: '#F0FDF4' }}>
-            <div className="pain-icon" style={{ color: '#16A34A' }}><Lightbulb /></div>
-            <div className="pain-content">
+          <div
+            className="pain-card pain-card-img"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&q=80')" }}
+          >
+            <div className="pain-card-overlay">
               <h3>Đầu tư thông minh, hiệu quả cao</h3>
-              <p>Chi phí hợp lý, vừa học vừa làm, thu nhập ngay từ năm đầu. Con đường du học giúp bạn tự chủ tài chính nhanh hơn so với lộ trình truyền thống.</p>
+              <p>Vừa học vừa làm, hoàn vốn ngay từ năm đầu sau tốt nghiệp.</p>
             </div>
           </div>
-          <div className="pain-card" style={{ background: '#FFFBEB' }}>
-            <div className="pain-icon" style={{ color: '#D97706' }}><Globe /></div>
-            <div className="pain-content">
+          <div
+            className="pain-card pain-card-img"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80')" }}
+          >
+            <div className="pain-card-overlay">
               <h3>Tương lai rộng mở toàn cầu</h3>
-              <p>Có nghề trong tay, cơ hội việc làm ổn định và khả năng định cư lâu dài tại các quốc gia phát triển như Đức, Úc, Canada.</p>
+              <p>Có nghề trong tay, định cư dài hạn tại Đức, Úc, Canada dễ dàng hơn.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <RoadmapSection />
     <CareersSection />
