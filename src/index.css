@@ -428,9 +428,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pain-card {
-  padding: 36px 24px;
   border-radius: 24px;
-  text-align: center;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -440,87 +439,140 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-hover);
 }
 
-.pain-icon {
-  width: 48px;
-  height: 48px;
-  background: white;
-  border-radius: 50%;
+/* Image background variant */
+.pain-card-img {
+  position: relative;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
+  align-items: flex-end;
 }
 
-.pain-content h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+.pain-card-overlay {
+  width: 100%;
+  background: linear-gradient(to top, rgba(10, 30, 80, 0.88) 0%, rgba(10, 30, 80, 0.4) 60%, transparent 100%);
+  padding: 24px 20px 20px;
+  color: white;
 }
 
-.pain-content p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+.pain-card-overlay h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.pain-card-overlay p {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Roadmap */
 .roadmap {
-  padding: 60px 0;
+  padding: 80px 0;
   background-color: var(--light-blue);
   text-align: center;
 }
 
-.timeline {
-  display: flex;
-  justify-content: space-between;
+.roadmap-card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
   margin-bottom: 40px;
-  position: relative;
-  overflow-x: auto;
-  padding-bottom: 20px;
+  text-align: left;
 }
 
-.timeline::before {
-  content: '';
+.roadmap-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--border-color);
+}
+
+.roadmap-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+  border-color: transparent;
+}
+
+.roadmap-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-card-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.roadmap-card:hover .roadmap-card-img {
+  transform: scale(1.06);
+}
+
+.roadmap-step-badge {
   position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  height: 2px;
+  top: 10px;
+  left: 10px;
   background: var(--primary-blue);
-  z-index: 1;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
 }
 
-.timeline-step {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100px;
+.roadmap-card-body {
+  padding: 14px 14px 16px;
 }
 
-.step-number {
-  width: 40px;
-  height: 40px;
+.roadmap-step-num {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--primary-blue);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  margin-bottom: 12px;
-  border: 4px solid var(--light-blue);
-}
-
-.step-title {
+  font-weight: 800;
   font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
+  border: 3px solid var(--light-blue);
 }
 
-.step-desc {
-  font-size: 0.75rem;
+.roadmap-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.roadmap-card-desc {
+  font-size: 0.78rem;
   color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.roadmap-card-duration {
+  display: inline-block;
+  background: var(--bg-light);
+  color: var(--primary-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
 }
 
 /* Careers */
@@ -1392,11 +1444,13 @@ h1, h2, h3, h4, h5, h6 {
   .finance-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-card-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
+  /* Layout adjustments */
   .hero-container { flex-direction: column; text-align: center; }
-  .hero-actions { justify-content: center; }
+  .hero-actions { justify-content: center; flex-wrap: wrap; }
   .hero-badges { justify-content: center; }
   .pain-grid { grid-template-columns: 1fr; }
   .eco-content { flex-direction: column; }
@@ -1407,13 +1461,66 @@ h1, h2, h3, h4, h5, h6 {
   .footer-grid { grid-template-columns: 1fr; }
   .map-container { flex-direction: column; }
   .trust-grid { grid-template-columns: 1fr; }
+
   /* article sections */
   .featured-articles-layout { grid-template-columns: 1fr; }
   .featured-main-img { height: 260px; }
   .career-article-grid { grid-template-columns: repeat(2, 1fr); }
   .country-article-grid { grid-template-columns: repeat(2, 1fr); }
   .handbook-two-col { flex-direction: column; }
+  .roadmap-card-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── BANNER: tăng chữ cho mobile ── */
+  .hero {
+    padding: 64px 0 80px;
+    background-position: center right 20%;
+  }
+  .hero-title {
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+  .btn-primary, .btn-outline {
+    font-size: 0.85rem;
+    padding: 12px 18px;
+  }
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  /* ── LỘ TRÌNH: tăng chữ cho mobile ── */
+  .roadmap { padding: 50px 0; }
+  .section-title { font-size: 1.3rem; }
+  .roadmap-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .step { flex-direction: row; align-items: flex-start; gap: 16px; max-width: 100%; }
+  .step-number { width: 44px; height: 44px; font-size: 1rem; flex-shrink: 0; margin-bottom: 0; }
+  .step-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .step-desc { font-size: 0.85rem; line-height: 1.5; }
+  .roadmap-connector { display: none; }
 }
+
+@media (max-width: 480px) {
+  /* Nhỏ hơn nữa (điện thoại màn hình nhỏ) */
+  .hero-title { font-size: 1.45rem; }
+  .hero-subtitle { font-size: 0.88rem; }
+  .section-title { font-size: 1.15rem; }
+  .step-title { font-size: 0.92rem; }
+  .step-desc { font-size: 0.8rem; }
+  .career-article-grid { grid-template-columns: 1fr; }
+  .country-article-grid { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-card-grid { grid-template-columns: 1fr; }
+}
+
 
 /* ============================================================
    HOME ARTICLE SECTIONS
