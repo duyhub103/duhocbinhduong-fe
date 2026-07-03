@@ -483,7 +483,7 @@ const Home = () => (
           >
             <div className="pain-card-overlay">
               <h3>Định hướng rõ ràng từ sớm</h3>
-              <p>Chọn đúng nghề, đúng quốc gia — bước đầu quyết định cả tương lai.</p>
+              <p>Chọn đúng nghề và quốc gia — bước đầu quyết định tương lai.</p>
             </div>
           </div>
           <div
@@ -492,7 +492,7 @@ const Home = () => (
           >
             <div className="pain-card-overlay">
               <h3>Đầu tư thông minh, hiệu quả cao</h3>
-              <p>Vừa học vừa làm, hoàn vốn ngay từ năm đầu sau tốt nghiệp.</p>
+              <p>Vừa học vừa làm, nhanh chóng tự chủ tài chính từ năm học đầu.</p>
             </div>
           </div>
           <div
@@ -501,7 +501,7 @@ const Home = () => (
           >
             <div className="pain-card-overlay">
               <h3>Tương lai rộng mở toàn cầu</h3>
-              <p>Có nghề trong tay, định cư dài hạn tại Đức, Úc, Canada dễ dàng hơn.</p>
+              <p>Có nghề trong tay, định cư dài hạn Đức, Úc, Nhật dễ dàng.</p>
             </div>
           </div>
         </div>
